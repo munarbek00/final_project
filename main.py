@@ -46,7 +46,7 @@ class Window:
         for row in self.images:
             self.tree.insert(parent='', index='end', iid=row,text='', values=(row,), tag='orow')
         self.tree.tag_configure('orow', background='#EEEEEE', font=('Arial', 12))
-        self.tree.grid(row=0, column=4, columnspan=5, rowspan=11, padx=10, pady=20)
+        self.tree.grid(row=4, column=0, columnspan=5, rowspan=11, padx=10, pady=20)
         
 
     def clear(self):
@@ -70,23 +70,23 @@ class Window:
     def main_loop(self):
 
         button_choose = Button(self.root, text='Choose image', command=self.choose_file)
-        button_choose.grid(row=0, column=0)
+        button_choose.grid(row=2, column=0)
 
         button_save = Button(self.root, text='Run', command=self.save)
-        button_save.grid(row=4, column=0)
+        button_save.grid(row=2, column=4)
 
         button_clear = Button(self.root, text='Clear', command=self.clear)
-        button_clear.grid(row=6, column=0)
+        button_clear.grid(row=2, column=1)
 
         button_delete = Button(self.root, text='Delete', command=self.delete)
-        button_delete.grid(row=8, column=0)
+        button_delete.grid(row=2, column=2)
 
         self.varF2 = StringVar(self.root)
         self.option_text = 'Choose option'
         self.varF2.set(self.option_text)
         sidesF2 = ['Left', "Right", "Flip"]
         sideF2 = OptionMenu(self.root, self.varF2, *sidesF2)        
-        sideF2.grid(row=2, column=0, columnspan=1, padx=25, pady=5)
+        sideF2.grid(row=2, column=3, columnspan=1, padx=25, pady=5)
 
         self.tree['columns'] = ('image dir',)
         self.tree.column('#0', width=0, stretch=NO)
